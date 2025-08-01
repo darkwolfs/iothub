@@ -297,6 +297,14 @@ func WithSendCorrelationID(cid string) SendOption {
 	}
 }
 
+// WithOutputName sets message to.
+func WithOutputName(title string) SendOption {
+	return func(msg *common.Message) error {
+		msg.To = title
+		return nil
+	}
+}
+
 // WithSendProperty sets a message option.
 func WithSendProperty(k, v string) SendOption {
 	return func(msg *common.Message) error {
